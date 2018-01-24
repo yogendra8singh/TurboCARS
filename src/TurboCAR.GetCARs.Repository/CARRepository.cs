@@ -19,7 +19,7 @@ namespace TurboCAR.GetCARs.Repository
         {
             try
             {
-                ConnectionMultiplexer Connection = ConnectionMultiplexer.Connect("52.163.252.25:6379");
+                ConnectionMultiplexer Connection = ConnectionMultiplexer.Connect("localhost");
                 IDatabase cache = Connection.GetDatabase();
                 var returnRequests = JsonConvert.DeserializeObject<List<CreditActionRequest>>(cache.StringGet("TurboCAR.CARList"));
                 return returnRequests;

@@ -18,7 +18,7 @@ namespace TurboCAR.CreateCAR.Repository
         {
             if (newCAR != null)
             {
-                ConnectionMultiplexer Connection = ConnectionMultiplexer.Connect("52.163.252.25:6379");
+                ConnectionMultiplexer Connection = ConnectionMultiplexer.Connect("localhost");
                 IDatabase cache = Connection.GetDatabase();
                 newCAR.CARID = (new Random().Next(1, 99999) + 300000).ToString();
 
