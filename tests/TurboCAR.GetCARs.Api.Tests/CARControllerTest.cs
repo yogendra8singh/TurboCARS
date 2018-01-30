@@ -34,15 +34,15 @@ namespace TurboCAR.GetCARs.Api.Tests
             repoOutput = JsonConvert.DeserializeObject<List<CreditActionRequest>>("[{\"CIF\":null,\"Borrower\":\"1320 Entact GP, LP\",\"CARType\":2,\"Team\":null,\"CARID\":\"200772\",\"CreationDate\":\"2016-07-19T00:00:00\",\"ActivityStatus\":\"Edit Data\"},{\"CIF\":null,\"Borrower\":\"1320 Excalibur, LP\",\"CARType\":3,\"Team\":null,\"CARID\":\"200687\",\"CreationDate\":\"2016-04-25T00:00:00\",\"ActivityStatus\":\"Edit CAR\"},{\"CIF\":null,\"Borrower\":\"CADIENT GROUP INC\",\"CARType\":1,\"Team\":null,\"CARID\":\"200686\",\"CreationDate\":\"2016-04-24T00:00:00\",\"ActivityStatus\":\"Edit CAR\"},{\"CIF\":null,\"Borrower\":\"CADIENT GROUP INC\",\"CARType\":1,\"Team\":null,\"CARID\":\"200685\",\"CreationDate\":\"2016-04-24T00:00:00\",\"ActivityStatus\":\"Edit CAR\"}]");
         }
 
-        [Fact]
-        public async Task GetAsyncTest()
-        {
-            repository.GetAsync().Returns(Task.Run(() => repoOutput));
-            var result = controller.Get();
-            int actual = result.Result.Count;
-            string dummy = JsonConvert.SerializeObject(result.Result);
-            Assert.True(actual == creditActionRequests.Count);
-        }
+        //[Fact]
+        //public async Task GetAsyncTest()
+        //{
+        //    repository.GetAsync().Returns(Task.Run(() => repoOutput));
+        //    var result = controller.Get();
+        //    int actual = result.Result.Count;
+        //    string dummy = JsonConvert.SerializeObject(result.Result);
+        //    Assert.True(actual == creditActionRequests.Count);
+        //}
 
         [Fact]
         public async Task GetAsyncWithParameterTest()
